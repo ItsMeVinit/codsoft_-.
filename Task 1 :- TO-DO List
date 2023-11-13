@@ -1,0 +1,44 @@
+# Define an empty dictionary to store tasks
+tasks = {}
+
+def add_task():
+    task_name = input("Enter task name: ")
+    task_description = input("Enter task description: ")
+    tasks[task_name] = task_description
+    print(f"Task '{task_name}' added successfully!")
+
+def update_task():
+    task_name = input("Enter the name of the task you want to update: ")
+    if task_name in tasks:
+        new_description = input("Enter the updated task description: ")
+        tasks[task_name] = new_description
+        print(f"Task '{task_name}' updated successfully!")
+    else:
+        print(f"Task '{task_name}' not found in the to-do list.")
+
+def list_tasks():
+    if not tasks:
+        print("No tasks in the to-do list.")
+    else:
+        print("To-Do List:")
+        for task_name, task_description in tasks.items():
+            print(f"Task: {task_name}\nDescription: {task_description}\n")
+
+while True:
+    print("\nOptions:")
+    print("1. Add a task")
+    print("2. Update a task")
+    print("3. List tasks")
+    print("4. Quit")
+    choice = input("Enter your choice (1/2/3/4): ")
+
+    if choice == "1":
+        add_task()
+    elif choice == "2":
+        update_task()
+    elif choice == "3":
+        list_tasks()
+    elif choice == "4":
+        break
+    else:
+        print("Invalid choice. Please choose a valid option.")
